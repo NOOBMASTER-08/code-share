@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from Code_share import settings
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('snippits.urls')),
+    path('',views.homepage),
+    path('snippits/',include('snippits.urls')),
     path('users/', include('users.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
